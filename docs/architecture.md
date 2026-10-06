@@ -13,7 +13,7 @@ Related documents: [Methodology](methodology.md), [Data sources](data_sources.md
 | Deduplication | `stg.vwPPH_Deduplicated`, `stg.vwMedicare_Deduplicated` | Select one published worksheet record at the intended analytical grain |
 | Warehouse | 13 dimension tables and five fact tables in `dw` | Provide shared keys, measure metadata and protected fact grains |
 | Reporting | 14 views in `rpt` | Join indicators, define eligible cohorts and calculate scores, contributions and rankings |
-| Presentation | Power BI report developed for the project | Explore indicators through the reporting layer; report assets are not included in the SQL archive |
+| Presentation | Power BI report developed for the project | Explore indicators through the reporting layer; [CareGapAustralia.pbix](../powerbi/CareGapAustralia.pbix) is included in the repository |
 
 There are 29 tables in the exported schema: 18 warehouse tables and 11 staging tables. Four staging views and 14 reporting views make 18 views in total. The export contains one stored procedure, `stg.usp_LoadMedicareCsv`. Some staging tables retain earlier project structures; the current national workforce loader reads `WorkforceGP_NationalRaw` directly, rather than loading the seven-area pilot through `WorkforceGP`.
 
@@ -55,4 +55,4 @@ Most reconstructed ETL stages use `XACT_ABORT` and transaction error handling. S
 
 Count reconciliation catches records lost through dimension joins. It does not prove that source values, geography boundaries or scores are scientifically valid. A failed stage must be inspected before resuming; successful raw imports should not be repeated blindly.
 
-Static checks have covered insert column names, required columns, included filenames and basic object dependency order. SQL Server execution, source-file availability and end-to-end analytical outputs remain to be verified for this packaged version. Source data, original workbook-to-CSV conversion and Power BI files are separate deliverables.
+Static checks have covered insert column names, required columns, included filenames and basic object dependency order. SQL Server execution, source-file availability and end-to-end analytical outputs remain to be verified for this packaged version. The [Power BI report](../powerbi/CareGapAustralia.pbix) is included in the repository, but opening it and refreshing its data have not been verified in this review. Source datasets and the original workbook-to-CSV conversion are not included.

@@ -109,10 +109,11 @@ V2 compares financial year 2023–24 with the 2024 workforce snapshot and 2021 S
 | `sql/` | 26 SQL files: schema, reporting views, imports, ETL and validation | Prepared; static checks completed |
 | `docs/` | Architecture, methodology, source notes and data dictionary | Prepared |
 | `screenshots/` | National overview, selected-area example and methodology page | Included |
+| [`powerbi/CareGapAustralia.pbix`](powerbi/CareGapAustralia.pbix) | Power BI report file | Included; opening and refresh not verified in this repository review |
 
 The exported schema contains 29 tables, 18 views and one import procedure. The reconstructed package has been checked for insert-column compatibility, required columns, file includes and basic dependency order. A complete clean installation and ETL run has **not** been verified on SQL Server for this GitHub package.
 
-Raw datasets, prepared CSVs, Power BI files and DAX definitions are not included in the current package. The SEIFA and workforce loaders require project-prepared CSVs; converting the original source workbooks or exports into those CSVs is not automated here.
+The Power BI report is included in [`powerbi/CareGapAustralia.pbix`](powerbi/CareGapAustralia.pbix). Raw datasets, prepared CSVs and standalone DAX definition files are not included. Opening the report and refreshing its data have not been verified during this repository review. The SEIFA and workforce loaders require project-prepared CSVs; converting the original source workbooks or exports into those CSVs is not automated here.
 
 ## Run the SQL package
 
